@@ -1,0 +1,15 @@
+*.o
+*.dat
+*.out
+*.pdf
+.*.swp
+holder.c
+holder.h
+*.sh
+*.aux
+*.bbl
+*.blg
+*.log
+*.toc
+*.dvi
+*.ps
