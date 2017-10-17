@@ -89,7 +89,7 @@ int 	main(int argc, char *argv[]){
 
 	// ALPHA & BETA
 	initialiseAlpha(&alphaDir, noTopics);
-	initialiseGamma(&gammaDir, uniqueWordCounts[noFiles], &gammaSum);
+	initialiseGamma(&gammaDir, vocabSize, &gammaSum);
 
 	gettimeofday(&t2Sec, NULL);
 	printTime(t1Sec, t2Sec, "Setting Up");
