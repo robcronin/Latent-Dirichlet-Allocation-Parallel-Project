@@ -1,0 +1,16 @@
+Serial implementation of TF-IDF analysis
+Created as initial test and investigation of available methods
+Many functions creates to run this analysis regarding the read in of documents were re-used for LDA implementation
+
+Sample TF-IDF code is left here for reference
+
+To compile:
+	make
+
+To run:
+	./tfidf.out	OR	make test
+	(Takes ~15 seconds)
+
+Optional Flags:
+	-d [DIR]	Change the sample directory
+	-m [INT]	Set a max number of files to use

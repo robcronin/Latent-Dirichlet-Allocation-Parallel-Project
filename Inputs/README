@@ -1,0 +1,11 @@
+Included is a corpus from Project Gutenberg:
+
+	Gutenberg	16 documents
+
+Also included is the list of stopwords used by the program
+And a directory CopyrightCheck contains the code to scan a corpus for the free for use copyright line
+
+
+
+Note: Additional corpora with 357 and 831 documents (zipped file, 265MB) can be found at:
+	https://drive.google.com/a/tcd.ie/file/d/0Bwxc63LjDNFQa3ZqakVtQk9EUzA/view?usp=drive_web

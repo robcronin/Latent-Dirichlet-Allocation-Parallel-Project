@@ -1,0 +1,19 @@
+Parallel implementation of AD-LDA
+Requires openmpi
+
+To compile:
+	make
+
+To run:
+	mpirun -n x ./gibbsLDA-MPI.out		OR 	make test
+	(Takes ~12 seconds)
+
+Optional Flags:
+	-d [DIR]	Change Directory
+	-h		Print Help
+	-i [INT]	Set Number of Iterations for Gibbs Sampling
+	-m [INT]	Set Max Number of Files
+	-p		Print Results
+	-r		Set Parallel Read In
+	-s [INT]	Set Seed
+	-t [INT]	Set Number of Topic

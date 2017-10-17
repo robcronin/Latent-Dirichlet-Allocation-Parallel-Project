@@ -1,0 +1,289 @@
+commit 1f5e7f9b0421d8a3ad24768a8105fc8374746121
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Fri Sep 1 16:35:52 2017 +0100
+
+    Final clean up before submission
+    	- Created README files
+
+commit 09ec2bcabcd43405826c25ba3a056ece741b67c7
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Fri Sep 1 14:42:22 2017 +0100
+
+    Removed directories unnecessary for submitting
+
+commit b61c3eb36976df93a0162a890c99f68e998f606f
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Sat Aug 26 17:41:44 2017 +0100
+
+    Added option to read in non-Gutenberg -> v2.5
+    Added option to read from overall dictionary -> v2.5.1
+    
+    Seperated PLDA+ main.c into header files and cleaned up -> v2.5.2 - v2.5.5
+    	Added inclusion guards to all header files
+    	Added comments to start of all header files
+    	Deleted unused functions
+    	More commenting
+    
+    More graphs and images
+    
+    Wrote a bit more of performance
+    
+    Big clean-up and moving around of code
+    	Removed any files not needed for submission
+    	Altered file structure for easier navigation
+    	Cleaned up Inputs folder
+
+commit 6f2078f694fbe165244fba9dbc84e10925dec078
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Fri Aug 25 05:19:44 2017 +0100
+
+    Tried pthreads again
+    	- Got it working and quite fast -> v2.4
+    	- Found it was skipping 90% of computation
+    	- Fixed this -> v2.4.1
+    		-> quite slow
+    		-> still hangs sometimes
+    		-> but definitely slower than without
+    
+    More test data
+    	-> created some speed graphs
+    
+    Saved a draft 1 of report
+    Scalasca/Vampir pictures
+    
+    Added more to report
+    	-> created title page
+    	-> proof read methods/software
+    	-> reorganised some of performance into software
+
+commit b587218d8ba76675d2968b233c94211b813ead6f
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Tue Aug 22 00:54:41 2017 +0100
+
+    Used condensed matrix for inverted index also -> v2.2
+    Presorted files by size for readin to try and achieve better load balance -> v2.3
+    Added command line options to turn these on/off, put in printHelp, printInfo etc
+    
+    Added presort option to AD-LDA
+    Fixed up print timing statements to line up better
+    Added lonsdale timings for AD-LDA
+
+commit 8b4170924bfebddd00e1aa88cfebba8b4fd6b6df
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Mon Aug 21 02:14:44 2017 +0100
+
+    Cleaned up send to any tag functions to avoid overlap -> v 2.0.1
+    Added pthreads for Gibbs sampling on Pw end -> v 2.0.2
+    
+    Added deadlines and workload balancing to pthreads versions -> v 2.1
+    
+    Fixed up printInfo to account for new capabilities
+    Added new timings from new tests
+    
+    Wrote more to methods and software sections
+
+commit c095ab9793f0bdab30055791c50ffe180ea65a10
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Fri Aug 18 22:40:08 2017 +0100
+
+    Added pthreads capability to Gibbs sampling -> version 2.0
+    	- uses 4 threads per MPI process so created new Makefile
+    	- one thread for fetch Ctopic, fetch Cword, runGibbs and updateCword
+    	- updated printInfo function (and for older files using same function call)
+    
+    Fixed potential topic sampling issue by adding error check to serial and AD-LDA versions
+    Few new timings added to spreadsheet
+
+commit 95344e8915e722c11a4e1e4b3611788ef4376422
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Thu Aug 17 00:32:30 2017 +0100
+
+    Changed RMA from 2d array of windows to two single windows
+    	- One for Cword and one for Ctopic
+    	- lonsdale did not like 2d array and crashed for more than 1 node
+    	- became v 1.4.4
+    
+    Finished off the main part of software
+    	- few extra code examples
+    
+    Added a sample output to testing
+    Plus a few other cleanups to report
+
+commit 0a5cdf348d3fa323c465920346bd92291ceacd99
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Tue Aug 15 00:36:01 2017 +0100
+
+    Finished first draft of methods section
+    Did roughly half of software section including some code snippets
+
+commit b2ef420e692b2517e798b3e875d3fd95324e2dd9
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Sun Aug 13 22:59:46 2017 +0100
+
+    Used matrix version of Cword to implement RMA reading of Cword values
+    	- version 1.4 used RMA to init topics -> 42s -> 36s on make test
+    	- version 1.4.1 used RMA for Gibbs sampling -> 45s
+    		- hopefully on larger scale will speed up
+    	- version 1.4.2 fixed MPI_BOTTOM error on lonsdale's MPI version
+    		- also added command line option to switch between RMA of init and of Gibbs
+    		- and option to switch between Cword BST and Matrix
+    		- Note: doesn't run properly if sbatched on lonsdale for >8 cores
+    			- but does for <= 8 or if salloc'd
+    Added a Timing ods file to keep track of speed ups
+    Updated PLDA and serial to account for new info function
+    Increased decimal places of timing to 6
+
+commit c61455b328e1d0a7bb60b81202fb6329233f52e7
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Sat Aug 12 01:10:48 2017 +0100
+
+    Added a versions folder to keep track of changes to PLDA+
+    Replaced all MPI_Ssend's with MPI_Send's for version 1.2
+    Added option to use matrix instead of bst for Cword on Pw -> version 1.3
+    	- Gave 1.2x speed up for 100 iterations
+    		- Expect bigger multiplier as iterations increases
+    Updates to writeup
+
+commit ec6ea6805238383b4f5b23af13146b6cc0220103
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Sat Aug 12 01:07:21 2017 +0100
+
+    Created linked list file
+    	- Simple create, add and free functions
+    	- Didn't need for what I thought, so not used at the moment
+
+commit b13928389e8475e32b92ac7453e688242346a75d
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Fri Aug 11 19:48:35 2017 +0100
+
+    Started writing report
+    	- Wrote an outline for sections I can so far
+    	- Wrote most of methods sectio
+
+commit 4a922c3decf218f9a5bd1b60521821562f377840
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Tue Aug 8 18:49:24 2017 +0100
+
+    Created simple code to check if Gutenberg files had required copyright info
+
+commit 368bfc016bc0e3cd4f27efe26a4bdab344a01c8e
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Tue Aug 8 18:48:07 2017 +0100
+
+    Fixed Empty Topic Issue -> PLDA+ v1.1
+    	- Wasn't updating Cword, only fetching
+
+commit b8beb9941307d5197b2eba93c8a30777d997d1b0
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Sat Aug 5 02:17:51 2017 +0100
+
+    Created initial working version of PLDA+ v1.0
+    	- Updating information from previous versions to reflect this
+    	- Works but topics don't appear to be correct
+    	- One big topic and then mostly empty otherwise
+    	- Not seperated into header files yet either
+
+commit e8ca2d7c5ccb137504e9105447b91d301c6eeb36
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Sat Aug 5 01:28:30 2017 +0100
+
+    Created a binary tree template with rebalance
+    Also added few extra functions relating to Cword and InvertedIndex trees
+
+commit 539fd978cc61041fc4d21cf033f77910ec3bf982
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Thu Aug 3 18:52:05 2017 +0100
+
+    Adapted Marina's quicksort code to work for matrices and arrays
+
+commit a6a71570d9b9dda3453d917c528ebcb02606d188
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Fri Jul 21 17:27:16 2017 +0100
+
+    Created AD-LDA parallel code
+    	- Works properly without any seg faults
+    	- Added few extra functions to tfidf to help with sending/receiving
+    	- Added information print function to AD-LDA and to LDA
+
+commit ed2a9bf164f411566661a02b647f2e1e7ea75573
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Wed Jul 5 16:20:16 2017 +0100
+
+    Modified LDA Gibbs code to use arrays rather than alpha struct for easier sending via MPI
+    	- Gets similar results to non array version
+    	- Added few extra matrix functions
+    	- Added a timing function to extra
+
+commit 7c816e058b19a5312aecad4d4d8e3b6c44e6635e
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Mon Jun 26 19:44:45 2017 +0100
+
+    Created serial LDA using Gibbs sampling
+    	- Appears to work as intended, unlike EM method
+    	- Produces topics with different words in each
+    	- Uses alpha struct which may pose problems when parallelising
+
+commit cb2965a81abede88df11afbffc5ab5f1b4b4b55e
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Fri Jun 23 15:04:36 2017 +0100
+
+    Created serial LDA E-M method code
+    	- Doesn't converge for >1 document
+    	- Even with 1 it is just one topic repeated
+    	- Added functions to tfidf code to create a beta dictionary also
+    	- Will attempt Gibbs code instead
+
+commit 62fdc3639c8a7e4f138de1180a90d4919633ccc4
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Thu Jun 15 20:17:14 2017 +0100
+
+    Also created an extra file with mins and maxs functions
+
+commit 74910968416e2857be1818314c1c091b50a457de
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Thu Jun 15 20:16:39 2017 +0100
+
+    Seperated the matrix functions from SVD into seperate file for reuse
+    Functions include:
+    	- Allocating/Freeing
+    	- Filling
+    	- Multiplying
+    	- Transposing
+    	- Printing
+
+commit 810c3fd807964ad3a6080920d9c3343c6479680d
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Thu Jun 15 20:12:58 2017 +0100
+
+    Created serial SVD code
+    	- Jacobi method for solving eigenvalues and eigenvectors
+    	- Jacobi SVD method for SVD factorisation
+    	- main.c testfile with a Makefile
+
+commit 07e4f3e8dde610c5ad0ff64cb66b5a2d7740afe1
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Thu May 25 19:37:12 2017 +0100
+
+    Created serial tf-idf code with a main.c testfile
+    	- Reads in files
+    	- Stores in a linked list for each letter
+    	- Calculates tf-idf values
+    	- Prints top scores for each document based on these values
+
+commit fe9d622f4b737aec0ac313928eba06035a41d7d0
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Tue May 23 12:48:50 2017 +0100
+
+    Committed deleted folders
+
+commit 1ae82e65ff5fd1279a83b5e8d9153359caca897d
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Tue May 23 12:48:31 2017 +0100
+
+    Reorganised Folders and committed Proposal and Ideas within Setup folder
+
+commit b1c9ca1bf97ee26e546f68b60bc8604e84bcfb74
+Author: Robert Cronin <croninro@tcd.ie>
+Date:   Mon May 22 18:19:43 2017 +0100
+
+    Initial commit

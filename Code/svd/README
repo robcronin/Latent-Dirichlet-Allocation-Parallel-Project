@@ -1,0 +1,21 @@
+Serial implementation of SVD Decomposition
+Created as initial test and investigation of available methods
+
+Sample SVD code is left here for reference
+
+To compile:
+	make
+
+To run:
+	./svd.out -v	OR	make test
+	(Takes ~0.005 seconds)
+
+Optional Flags:
+	-e		Runs Error Checking
+	-f [FILE]	Uses Matrix From File
+	-h		Prints Help
+	-n [INT]	Sets Number of Rows
+	-m [INT]	Sets Number of Columns
+	-s [INT]	Set seed
+	-v		Turns on Verbose
+

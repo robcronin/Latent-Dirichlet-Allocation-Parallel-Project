@@ -1,0 +1,12 @@
+Test Corpus Creator
+Simple code used for testing purposes
+Creates a simple corpus of random integers that are sampled from topics
+	The topics are made up by grouping numbers in 10s
+	eg 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 would form one topic
+
+To compile:
+	make
+
+To run:
+	./makeCorpus.out
+	(Ensure there exists a directory called testSet for the outputs to be stored)

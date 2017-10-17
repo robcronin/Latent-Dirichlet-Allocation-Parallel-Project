@@ -1,0 +1,66 @@
+Parallel implementation of PLDA+
+Requires openmpi
+
+
+To compile:
+	make
+
+To run:
+	mpirun -n x ./gibbsPLDA+.out		OR 	make test
+	(Takes ~9 seconds)
+
+Optional Flags:
+	-a [DOUBLE]	Set Pw:Pd ratio
+	-b [INT]	Set Bundle Size
+	-c [INT]	Set Cword Method:		1 = bst, 2 = matrix
+	-d [DIR]	Change Directory
+	-f		Turn Off Gutenberg style read in 
+	-h		Print Help
+	-i [INT]	Set Number of Iterations for Gibbs Sampling
+	-m [INT]	Set Max Number of Files
+	-o		Set Random File Read In
+	-p		Print Results
+	-r		Set Parallel Read In
+	-s [INT]	Set Seed
+	-t [INT]	Set Number of Topic
+	-v [INT]	Set Inverted Index Method:	1 = bst, 2 = matrix
+	-w [INT]	Set RMA Method:			0 = off, 1 = Init Topics, 2 = Gibbs, 3 = Both
+
+
+
+
+*****************************************************************************************************
+*****************************************************************************************************
+*****************************************************************************************************
+
+Pthreads version also implemented
+However, it may still hang if run for too many iterations so left here as demonstration
+Believed to be slower than normal version so time was not spent debugging
+
+Note: required to run on lonsdale to use MPI_THREAD_MULTIPLE
+Note: test assumes 16 cores have been allocated
+Note: can be run st that n is twice as large as N(to ensure a full process per thread), or just as normal
+
+To compile threads version:
+	make threads
+
+To run:
+	make -f Makefile.Threads test	OR	mpirun -N 2 -n 4 ./gibbsPLDA+Threads.out
+
+Optional Flags:
+	Same as above
+
+
+*****************************************************************************************************
+*****************************************************************************************************
+*****************************************************************************************************
+
+
+
+Also included are the output files from the tests run on lonsdale in slurmOutput/
+A summary of the results can be found in TimingData.ods
+Older versions of the code plus a description of each version can be found in versions/
+
+
+
+

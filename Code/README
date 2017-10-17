@@ -1,0 +1,22 @@
+The Code for "An Analysis of the Parallel Implementations of Latent Dirichlet Allocation in the Field of Digital Humanities"
+	Robert Cronin
+
+Main Code for this project can be found in GibbsPLDA+
+
+
+All Directories
+Gibbs-LDA2:		Serial LDA Implementation
+Gibbs-LDA-MPI:		AD-LDA Implementation
+GibbsPLDA+:		PLDA+ Implementation
+tfidf:			TF-IDF Implementation & Read In Functions of a Corpus utilised by LDA implementations also 
+testSet:		Creates a test set of documents via random integers
+binaryTree:		Binary Tree functions for Cword and Inverted Index part of PLDA+
+general:		Various header files for functions used throughout
+svd:			Initial serial implementation of SVD
+
+
+
+Note: Individual Directories may contain README files with information about compiling and executing code
+Note: In most cases running help through the -h flag will provide the most information about the flags
+
+Note: When switching from a Serial to MPI code or vice versa, run make clean first as many header files only use MPI functions when MPI is required

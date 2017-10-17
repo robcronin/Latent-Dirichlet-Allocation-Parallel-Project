@@ -1,0 +1,31 @@
+SP = #scorep --user --static
+CC = $(SP)  mpicc
+CFLAGS = -DMPI  -g -W -Wall -DACCTIME -DTHREADS #-DDEBUG
+LDFLAGS = -lm -lpthread
+
+objects = 	main.o \
+		plda+.o \
+		gibbsplda+.o \
+		initTopics.o \
+		pthreadFunctions.o \
+		../Gibbs-LDA-MPI/gibbsLDA-MPI.o \
+		../Gibbs-LDA2/gibbsLDA2.o \
+		../tfidf/tfidf.o \
+		../general/matrix.o \
+		../general/extra.o \
+		../binaryTree/binaryTreeCword.o \
+		../binaryTree/binaryTreeInv.o \
+		../general/quicksort.o \
+
+executable = gibbsPLDA+Threads.out
+
+$(executable): $(objects)
+	$(CC) $(objects) -o $@ $(LDFLAGS)
+
+.PHONY: clean test
+
+clean :
+	$(RM) $(objects) $(executable)
+
+test: $(executable)
+	mpirun -N 2 -n 4 ./$(executable) -s 1500547989 -p

@@ -1,0 +1,16 @@
+Serial implementation of LDA via Gibbs Sampling
+
+To compile:
+	make
+
+To run:
+	./gibbsLDA2.out 	OR	make test
+	(Takes ~20 seconds)
+
+Optional Flags:
+	-d [DIR]	Change Directory
+	-h		Print help
+	-i [INT]	Set Number of Iterations for Gibbs Sampling
+	-m [INT]	Set Max Number of Files
+	-s [INT]	Set Seed
+	-t [INT]	Set Number of Topics
